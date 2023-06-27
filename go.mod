@@ -15,3 +15,5 @@ require (
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 	golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1
 )
+
+replace github.com/gokrazy/rsync => github.com/dev-ns8/rsync v1.0.0
