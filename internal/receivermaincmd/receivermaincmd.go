@@ -155,7 +155,7 @@ func checkForHostspec(src string) (host, path string, port int, _ error) {
 }
 
 // rsync/main.c:start_client
-func rsyncMain(osenv osenv, opts *Opts, sources []string, dest string) (*Stats, error) {
+func RsyncMain(osenv osenv, opts *Opts, sources []string, dest string) (*Stats, error) {
 	log.Printf("dest: %q, sources: %q", dest, sources)
 	log.Printf("opts: %+v", opts)
 	for _, src := range sources {
@@ -480,9 +480,9 @@ func Main(args []string, stdin io.Reader, stdout io.Writer, stderr io.Writer) (*
 		// instead of copying.
 		dest := ""
 		sources := remaining
-		return rsyncMain(osenv, opts, sources, dest)
+		return RsyncMain(osenv, opts, sources, dest)
 	}
 	dest := remaining[len(remaining)-1]
 	sources := remaining[:len(remaining)-1]
-	return rsyncMain(osenv, opts, sources, dest)
+	return RsyncMain(osenv, opts, sources, dest)
 }
